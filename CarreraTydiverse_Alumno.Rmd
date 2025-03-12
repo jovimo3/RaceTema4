@@ -418,8 +418,7 @@ cran%>%filter(size_mb >= 0.5)
 
 ```{r}
 
-
-
+cran%>%filter(size_mb >= 0.5)%>%arrange(desc(size_mb))
 
 ```
 
@@ -433,8 +432,9 @@ hacerlo usando una tubería sin emplear ninguna variable auxiliar.
 `cran%>%...+geom_point()`
 
 ```{r}
+library(ggplot2)
 
-
+#ggplot(cran,mapping = aes(x = ))+geom_bar( )
 
 
 ```
@@ -492,9 +492,12 @@ son las variables ?. Transfórmalo en un conjunto `tidy` con las
 variables, `grade, sex y count`
 
 ```{r}
+library(tidyr)
+load("./data/datostidyr.Rdata")
 
-
-
+students %>%
+  pivot_longer(cols = c(male, female), names_to = "sex", values_to = "count")%>%
+  mutate(sex = recode(sex, male = "Male", female = "Female"))
 ```
 
 30. Considera el conjunto ´students2´, que es similar al primero pero
