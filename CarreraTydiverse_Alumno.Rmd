@@ -400,8 +400,8 @@ print(cran%>%select(ip_id, country, package, size))
 
 ```{r}
 
-cran%>%mutate(size_mb = size/2^20)
-
+cran <- cran%>%mutate(size_mb = size/2^20)
+cran
 ```
 
 27. Selecciona aquellas descargas cuyo tamaño es menor o igual que 0.5
@@ -409,7 +409,7 @@ cran%>%mutate(size_mb = size/2^20)
 
 ```{r}
 
-
+cran%>%filter(size_mb >= 0.5)
 
 ```
 
