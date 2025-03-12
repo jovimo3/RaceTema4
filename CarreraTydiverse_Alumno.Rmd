@@ -524,7 +524,13 @@ students2%>%
 
 ```{r}
 
-
+students3%>%#mutate(name = name, class = full_join(), test = test)
+  pivot_longer(cols = starts_with("class"),
+               names_to = "class",
+               values_to = "grade",
+               values_drop_na = TRUE)%>%
+  mutate(class = gsub("class", "", class))%>%
+  pivot_wider(names_from = test, values_from = grade)#Separa midterm y final en col
 
 
 ```
