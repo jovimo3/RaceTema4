@@ -261,7 +261,8 @@ cran3 <- cran%>%select(ip_id,package,size)
 
 ```{r}
 
-cran3%>%mutate(size_mb = size/2^20)
+cran3 <- cran3%>%mutate(size_mb = size/2^20)
+cran3
 ```
 
 16. Sabiendo que 1Gb son $2^{10}$ Mbytes, crea una nueva variable en
@@ -269,7 +270,8 @@ cran3%>%mutate(size_mb = size/2^20)
     expresado en Gbytes.
 
 ```{r}
-
+cran3 <- cran3%>%mutate(size_gb = size_mb / 2^10 )
+cran3
 ```
 
 17. Considera que se ha detectado un error en el sistema donde todos los
