@@ -191,14 +191,14 @@ cran%>%filter(r_version == "3.5.1", package == "plotly")
     de R superiores a la 3.4.0
 
 ```{r}
-
+cran%>%filter(r_version == "3.4.0", country == "ES")
 ```
 
 7.  Elige aquellas descargas realizadas desde España (ES), o Portugal
     (PT).
 
 ```{r}
-
+cran%>%filter(country == c("ES", "PT"))
 
 
 ```
