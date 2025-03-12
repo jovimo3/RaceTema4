@@ -400,7 +400,7 @@ print(cran%>%select(ip_id, country, package, size))
 
 ```{r}
 
-
+cran%>%mutate(size_mb = size/2^20)
 
 ```
 
