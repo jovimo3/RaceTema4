@@ -253,7 +253,7 @@ cran%>%arrange(country,desc(r_version), ip_id)
 
 ```{r}
 
-
+cran3 <- cran%>%select(ip_id,package,size)
 ```
 
 15. Crea una nueva variable en `cran3` llamada `size_mb` que contenga el
@@ -261,7 +261,7 @@ cran%>%arrange(country,desc(r_version), ip_id)
 
 ```{r}
 
-
+cran3%>%mutate(size_mb = size/2^20)
 ```
 
 16. Sabiendo que 1Gb son $2^{10}$ Mbytes, crea una nueva variable en
