@@ -361,13 +361,11 @@ top_counts
 
 ```{r}
 
+top_counts <- cran %>%
+  count(package) %>%
+  filter(n >= quantile(n, probs = 0.99, na.rm = TRUE))%>%arrange(desc(n))
 
-
-
-
-
-
-
+top_counts
 
 ```
 
@@ -380,11 +378,6 @@ top_counts
     resultado en `top_unique_sorted`.
 
 ```{r}
-
-
-
-
-
 
 
 
