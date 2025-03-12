@@ -346,9 +346,11 @@ by_package %>%
 
 ```{r}
 
+top_counts <- cran %>%
+  count(package) %>%
+  filter(n >= quantile(n, probs = 0.99, na.rm = TRUE))
 
-
-
+top_counts 
 
 
 ```
