@@ -327,31 +327,12 @@ de la variable `size` y almacénalos en las variables
 sumario se almacenará en `pack_sum`.
 
 ```{r}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+by_package %>%
+  summarise(
+    count = n(),                     # Número total de elementos
+    unique = n_distinct(ip_id),       # Número de elementos distintos en ip_id
+    countries = n_distinct(country),  # Número de países distintos
+    med_bytes = stats::median(size, na.rm = TRUE))
 
 ```
 
