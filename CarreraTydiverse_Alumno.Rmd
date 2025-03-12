@@ -507,9 +507,12 @@ students %>%
     nueva variable `class`)
 
 ```{r}
-
-
-
+students2%>%
+  pivot_longer(cols = c(2:5), # Columnas con la informacion
+               names_to = c("sex", "class"), # Col por las que queremos cambiarlas
+               names_sep = "_", # Separa male_1 en sex = male y class = 1
+               values_to = "count") %>% # Muevo sus valore a la fila count
+  mutate(sex = recode(sex, "male" = "Male", "female" = "Female"))
 
 ```
 
